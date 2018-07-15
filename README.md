@@ -4,6 +4,8 @@ This is a work in progress repository for [Appnouncements](https://www.appnounce
 **This is NOT ready to be integrated into any projects at this stage.**
 
 # Appnouncements Android SDK
+![](screenshots/logo.png)
+
 The Appnouncements Android SDK is the best way to get your release notes in front of your customer's eyes. Use it to inform customers about relevant changes and updates to your app.
 
 Phone | Error | Tablet
