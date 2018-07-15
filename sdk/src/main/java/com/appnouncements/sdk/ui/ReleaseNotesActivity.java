@@ -18,7 +18,6 @@ import com.appnouncements.sdk.VersionManager;
 public class ReleaseNotesActivity extends AppCompatActivity {
     public static String EXTRAS_RELEASE_NOTES_URL = "APPNOUNCEMENTS_RELEASE_NOTES_URL";
     public static String EXTRAS_ACTION_BAR_TITLE = "APPNOUNCEMENTS_TITLE";
-    public static String PREFS_LAST_SEEN = "LAST_SEEN_VERSION_CODE";
 
     private WebView webview;
     ContentLoadingProgressBar progressbar;

@@ -1,3 +1,4 @@
 <resources>
     <string name="toolbarTitle">What\'s New?</string>
+    <string name="error_opening_link">There was a problem opening that link…</string>
 </resources>

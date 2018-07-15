@@ -12,6 +12,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
+import com.appnouncements.sdk.R;
+
 import java.lang.ref.WeakReference;
 
 public class CustomWebViewClient extends WebViewClient {
@@ -92,8 +94,8 @@ public class CustomWebViewClient extends WebViewClient {
                 activity.get().startActivity(new Intent(action, Uri.parse(url)));
             }
             catch (ActivityNotFoundException e) {
-                // TODO: Translate
-                Toast.makeText(activity.get(), "There was a problem opening that link", Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity.get(), R.string.error_opening_link, Toast.LENGTH_SHORT).show();
+                e.printStackTrace();
             }
         }
 

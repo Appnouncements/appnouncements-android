@@ -29,6 +29,6 @@ public class VersionManager {
 
     public void updateLastSeenVersionCode() {
         application.getSharedPreferences(SHARED_PREFERENCES_KEY, Context.MODE_PRIVATE).edit()
-                .putString(ReleaseNotesActivity.PREFS_LAST_SEEN, getVersionCode()).apply();
+                .putString(SHARED_PREF_LAST_SEEN_VERSION_CODE, getVersionCode()).apply();
     }
 }

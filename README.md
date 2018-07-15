@@ -6,6 +6,10 @@ This is a work in progress repository for [Appnouncements](https://www.appnounce
 # Appnouncements Android SDK
 The Appnouncements Android SDK is the best way to get your release notes in front of your customer's eyes. Use it to inform customers about relevant changes and updates to your app.
 
+Phone | Error | Tablet
+:-------------------------:|:-------------------------:|:-------------------------:
+[[screenshots/phone_framed.png]]  | [[screenshots/error_phone_framed.png]] | [[screenshots/tablet_framed.png]]
+
 ## Requirements
 
 - **minSDK:** 15
@@ -63,12 +67,28 @@ public class MainActivity extends AppCompatActivity implements Client.Listener {
 }
 ```
 
-## Client API
-`getUnseenReleaseNotesCount()` -- Returns the number of "unseen" release notes from when the app was last launched. This could be used to implement a badge on your Release Notes button.
+## API Docs
+### Appnouncements
+`initialize(Application applicationContext, String apiKey)`
 
-`showReleaseNotes(Activity activity)` -- Opens the release notes on top of your current activity (fullscreen on mobile, dialog on tablet) with an action bar title of "What's new?"
+Initializes the SDK. This should be done in your Application's `onCreate`
 
-`showReleaseNotes(Activity activity, @StringRes int actionbarTitle)` -- Opens the release notes on top of your current activity (fullscreen on mobile, dialog on tablet) with a custom action bar title
+`getClientAsync(Client.Listener callback)`
+
+Asynchronously gets an Appnouncements client. The client instance will be cached for the duration of the app. This will currently fail silently.
+
+### Client
+`getUnseenReleaseNotesCount()`
+
+Returns the number of "unseen" release notes from when the app was last launched. This could be used to implement a badge on your Release Notes button.
+
+`showReleaseNotes(Activity activity)`
+
+Opens the release notes on top of your current activity (fullscreen on mobile, dialog on tablet) with an action bar title of "What's new?"
+
+`showReleaseNotes(Activity activity, @StringRes int actionbarTitle)`
+
+Opens the release notes on top of your current activity (fullscreen on mobile, dialog on tablet) with a custom action bar title
 
 ## Theming
 ### Light ActionBar
