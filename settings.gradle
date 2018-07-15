@@ -1,1 +1,3 @@
-include ':example', ':sdk'
+include ':sdk'
+if (!System.env.JITPACK)
+    include ':example'
