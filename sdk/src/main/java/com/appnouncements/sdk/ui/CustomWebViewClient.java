@@ -5,7 +5,6 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
-import android.support.v4.app.ActivityCompat;
 import android.text.TextUtils;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
@@ -90,7 +89,7 @@ public class CustomWebViewClient extends WebViewClient {
             }
 
             try {
-                ActivityCompat.startActivity(activity.get(), new Intent(action, Uri.parse(url)), null);
+                activity.get().startActivity(new Intent(action, Uri.parse(url)));
             }
             catch (ActivityNotFoundException e) {
                 // TODO: Translate

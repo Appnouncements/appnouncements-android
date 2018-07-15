@@ -2,7 +2,6 @@ package com.appnouncements.sdk;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v4.app.ActivityCompat;
 
 import com.appnouncements.sdk.ui.ReleaseNotesActivity;
 
@@ -23,7 +22,7 @@ public class Client {
         Intent intent = new Intent(activity, ReleaseNotesActivity.class);
         intent.putExtra(ReleaseNotesActivity.EXTRAS_RELEASE_NOTES_URL, apiConfiguration.buildUrl("release_notes"));
         intent.putExtra(ReleaseNotesActivity.EXTRAS_ACTION_BAR_TITLE, actionbarTitle);
-        ActivityCompat.startActivity(activity, intent, null);
+        activity.startActivity(intent);
         activity.overridePendingTransition(R.anim.slide_in_bottom, R.anim.noop);
     }
 
