@@ -8,11 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="Theme.Appnouncements.Dark.override" parent="Theme.Appnouncements.Dark.Toolbar">
+    <style name="Theme.Appnouncements.Dark.Toolbar.Override" parent="Theme.Appnouncements.Dark.Toolbar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <!--<item name="android:textColorPrimary">#FF0000</item>-->
+        <item name="android:textColorPrimary">#FF0000</item>
     </style>
 
 </resources>

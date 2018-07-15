@@ -23,7 +23,7 @@
         android:theme="@style/AppTheme">
         <activity android:name="com.appnouncements.sdk.ui.ReleaseNotesActivity"
             tools:replace="android:theme"
-            android:theme="@style/Theme.Appnouncements.Dark.override" />
+            android:theme="@style/Theme.Appnouncements.Dark.Toolbar.Override" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

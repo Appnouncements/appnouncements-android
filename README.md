@@ -63,6 +63,45 @@ public class MainActivity extends AppCompatActivity implements Client.Listener {
 }
 ```
 
+## Client API
+`getUnseenReleaseNotesCount()` -- Returns the number of "unseen" release notes from when the app was last launched. This could be used to implement a badge on your Release Notes button.
+
+`showReleaseNotes(Activity activity)` -- Opens the release notes on top of your current activity (fullscreen on mobile, dialog on tablet) with an action bar title of "What's new?"
+
+`showReleaseNotes(Activity activity, @StringRes int actionbarTitle)` -- Opens the release notes on top of your current activity (fullscreen on mobile, dialog on tablet) with a custom action bar title
+
+## Theming
+### Light ActionBar
+If your application is using a light colored actionbar, you shouldn't need to make any changes.
+
+### Dark ActionBar
+If your application is using a dark colored actionbar, you can update your `AndroidManifest.xml` to use our dark theme.
+
+```
+<activity android:name="com.appnouncements.sdk.ui.ReleaseNotesActivity"
+  tools:replace="android:theme"
+  android:theme="@style/Theme.Appnouncements.Dark.Toolbar" />
+```
+
+### Overriding Toolbar Colors
+Create a new style by overriding one of our Appnouncements' styles (e.g. `Theme.Appnouncements.Light.Toolbar` or `Theme.Appnouncements.Dark.Toolbar`).
+
+```
+    <style name="Theme.Appnouncements.Dark.Toolbar.Override" parent="Theme.Appnouncements.Dark.Toolbar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">#FF0000</item>
+    </style>
+```
+
+Update your `AndroidManifest.xml` to use the new style.
+```
+<activity android:name="com.appnouncements.sdk.ui.ReleaseNotesActivity"
+  tools:replace="android:theme"
+  android:theme="@style/Theme.Appnouncements.Dark.Toolbar.Override" />
+```
+
 ## Troubleshooting
 > Android dependency 'com.android.support:appcompat-v7' has different version for the compile (...) and runtime (...) classpath. You should manually set the same version via DependencyResolution
 
@@ -81,7 +120,3 @@ Fix 2: Exclude the appcompat modules from Appnouncements
     implementation ('com.github.Appnouncements:appnouncements-android:881ff1e18f') { exclude group: 'com.android.support' }
   }
 ```
-
-## TODO:
-- Theming/Custom Strings
-- API docs
