@@ -8,7 +8,7 @@ The Appnouncements Android SDK is the best way to get your release notes in fron
 
 Phone | Error | Tablet
 :-------------------------:|:-------------------------:|:-------------------------:
-[[screenshots/phone_framed.png]]  | [[screenshots/error_phone_framed.png]] | [[screenshots/tablet_framed.png]]
+![](screenshots/phone_framed.png)  |  ![](screenshots/error_phone_framed.png) | ![](screenshots/tablet_framed.png)
 
 ## Requirements
 
