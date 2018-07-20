@@ -1,20 +1,25 @@
 package com.appnouncements.sdk;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
+import com.appnouncements.sdk.support.AppnouncementsException;
+
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class ConfigurationFetcherAsyncTask extends AsyncTask<Void, Void, ConfigurationResult> {
     private final ApiConfiguration apiConfiguration;
-    private Throwable error;
+    private AppnouncementsException error;
 
-    public ConfigurationFetcherAsyncTask(ApiConfiguration apiConfiguration) {
+    ConfigurationFetcherAsyncTask(ApiConfiguration apiConfiguration) {
         this.apiConfiguration = apiConfiguration;
     }
 
@@ -33,7 +38,11 @@ public class ConfigurationFetcherAsyncTask extends AsyncTask<Void, Void, Configu
             connection.setReadTimeout(20 * 1000);
 
             if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
-                throw new Exception("Not OK Status Code!");
+                if (connection.getResponseCode() == HttpURLConnection.HTTP_NOT_FOUND) {
+                    throw new AppnouncementsException("Invalid API Key");
+                }
+
+                throw new AppnouncementsException("Something is wrong with the Appnouncements server, returned a status " + connection.getResponseCode());
             }
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(new BufferedInputStream(connection.getInputStream())));
@@ -43,7 +52,11 @@ public class ConfigurationFetcherAsyncTask extends AsyncTask<Void, Void, Configu
                 jsonBuffer.append(line);
             }
             reader.close();
-        } catch (Exception e) {
+        } catch (IOException e) {
+            error = new AppnouncementsException("Failed to connect to Appnouncements server", e);
+            e.printStackTrace();
+            return null;
+        } catch (AppnouncementsException e) {
             error = e;
             e.printStackTrace();
             return null;
@@ -53,9 +66,17 @@ public class ConfigurationFetcherAsyncTask extends AsyncTask<Void, Void, Configu
 
         // Parse JSON
         try {
-            return ConfigurationResult.fromJsonObject(new JSONObject(jsonBuffer.toString()));
-        } catch (Exception e) {
-            error = e;
+            ConfigurationResult configurationResult = ConfigurationResult.fromJsonObject(new JSONObject(jsonBuffer.toString()));
+
+            if (configurationResult.isDisabled()) {
+                error = new AppnouncementsException("This app is currently disabled. See Appnouncements.com for more details.");
+                error.printStackTrace();
+                return null;
+            }
+
+            return configurationResult;
+        } catch (JSONException e) {
+            error = new AppnouncementsException("Failed parsing response from Appnouncements server", e);
             e.printStackTrace();
             return null;
         }
@@ -67,6 +88,7 @@ public class ConfigurationFetcherAsyncTask extends AsyncTask<Void, Void, Configu
             Appnouncements.onConfigurationReceived(configurationResult);
         }
         else {
+            Log.e("appnouncements", "There was a problem creating your Appnouncements client", error);
             Appnouncements.onConfigurationError(error);
         }
     }

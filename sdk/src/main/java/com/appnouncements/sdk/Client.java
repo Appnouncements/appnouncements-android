@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.StringRes;
 
+import com.appnouncements.sdk.support.AppnouncementsException;
 import com.appnouncements.sdk.ui.ReleaseNotesActivity;
 
 public class Client {
@@ -33,6 +34,6 @@ public class Client {
 
     public interface Listener {
         void onAppnouncementsClientReady(Client client);
-//        void onAppnouncementsClientFailed(Throwable t);
+        void onAppnouncementsClientFailed(AppnouncementsException error);
     }
 }

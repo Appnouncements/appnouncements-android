@@ -4,7 +4,7 @@ This is a work in progress repository for [Appnouncements](https://www.appnounce
 **This is NOT ready to be integrated into any projects at this stage.**
 
 # Appnouncements Android SDK
-![](screenshots/logo.png)
+![](screenshots/logo.png | width=400)
 
 The Appnouncements Android SDK is the best way to get your release notes in front of your customer's eyes. Use it to inform customers about relevant changes and updates to your app.
 
@@ -66,6 +66,10 @@ public class MainActivity extends AppCompatActivity implements Client.Listener {
     public void onAppnouncementsClientReady(Client client) {
         client.showReleaseNotes(this);
     }
+
+    @Override
+    public void onAppnouncementsClientFailed(AppnouncementsException error) {
+    }
 }
 ```
 
@@ -77,7 +81,9 @@ Initializes the SDK. This should be done in your Application's `onCreate`
 
 `getClientAsync(Client.Listener callback)`
 
-Asynchronously gets an Appnouncements client. The client instance will be cached for the duration of the app. This will currently fail silently.
+Asynchronously gets an Appnouncements client. The client instance will be cached for the duration of the app.
+
+In the event of any failures (invalid API key, Appnouncements is down, etc), you will receive an exception in your `onAppnouncementsClientFailed` handler.
 
 ### Client
 `getUnseenReleaseNotesCount()`

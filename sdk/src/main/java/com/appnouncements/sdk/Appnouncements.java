@@ -3,6 +3,8 @@ package com.appnouncements.sdk;
 import android.app.Application;
 import android.os.AsyncTask;
 
+import com.appnouncements.sdk.support.AppnouncementsException;
+
 import java.util.ArrayList;
 
 public final class Appnouncements {
@@ -36,10 +38,10 @@ public final class Appnouncements {
         callbacks.clear();
     }
 
-    static synchronized void onConfigurationError(Throwable error) {
-//        for (Client.Listener cb : callbacks) {
-//            cb.onAppnouncementsClientFailed(error);
-//        }
+    static synchronized void onConfigurationError(AppnouncementsException error) {
+        for (Client.Listener cb : callbacks) {
+            cb.onAppnouncementsClientFailed(error);
+        }
         callbacks.clear();
     }
 
