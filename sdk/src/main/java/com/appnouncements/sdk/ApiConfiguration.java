@@ -3,7 +3,7 @@ package com.appnouncements.sdk;
 import com.appnouncements.sdk.VersionManager;
 
 public class ApiConfiguration {
-    private final String API_BASE_URL = "https://appnouncements.serveo.net/api";
+    private final String API_BASE_URL = "https://app.appnouncements.com/api";
     private final String API_KEY;
     private final VersionManager versionManager;
 
