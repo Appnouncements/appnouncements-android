@@ -4,7 +4,7 @@ This is a work in progress repository for [Appnouncements](https://www.appnounce
 **This is NOT ready to be integrated into any projects at this stage.**
 
 # Appnouncements Android SDK
-![](screenshots/logo.png | width=400)
+![](screenshots/logo.png)
 
 The Appnouncements Android SDK is the best way to get your release notes in front of your customer's eyes. Use it to inform customers about relevant changes and updates to your app.
 
@@ -20,6 +20,7 @@ Phone | Error | Tablet
 - **Permissions:** `android.permission.INTERNET`
 
 ## Integration Guide
+### Dependencies
 In your project's root `build.gradle`, add jitpack as a repository:
 
 ```
@@ -31,7 +32,7 @@ In your project's root `build.gradle`, add jitpack as a repository:
 	}
 ```
 
-Add the dependency to your project
+Add the dependency to your project's `build.gradle`
 
 ```
 	dependencies {
@@ -39,8 +40,9 @@ Add the dependency to your project
 	}
 ```
 
-**Note: If you already include appcompat-v7, you will likely run into version incompatabilities. To resolve these, see our troubleshooting section.**
+**Note: If you already include appcompat-v7, you will likely run into version incompatabilities. To resolve these, see our [troubleshooting section](https://github.com/Appnouncements/appnouncements-android#troubleshooting).**
 
+### Application Integration
 In your [Application Class](https://github.com/codepath/android_guides/wiki/Understanding-the-Android-Application-Class#defining-your-application-class), initialize Appnouncements with the SDK key that can be found in your dashboard.
 
 ```
