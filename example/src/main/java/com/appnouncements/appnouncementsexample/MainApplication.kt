@@ -7,6 +7,6 @@ class MainApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        Appnouncements.initialize(this, "a2f1a11b-d78b-453e-bf21-5275f88aa871")
+        Appnouncements.initialize(this, "c0748bcd-fc09-4a79-b7cb-5de7caf2e233")
     }
 }

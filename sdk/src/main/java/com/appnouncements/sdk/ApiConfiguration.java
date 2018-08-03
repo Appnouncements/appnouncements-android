@@ -7,7 +7,7 @@ public class ApiConfiguration {
     private final String API_KEY;
     private final VersionManager versionManager;
 
-    public ApiConfiguration(VersionManager versionManager, String apiKey) {
+    ApiConfiguration(VersionManager versionManager, String apiKey) {
         this.versionManager = versionManager;
         API_KEY = apiKey;
     }
