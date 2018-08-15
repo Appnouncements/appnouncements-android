@@ -1,12 +1,7 @@
-# WIP
-This is a work in progress repository for [Appnouncements](https://www.appnouncements.com), a startup focused on integrating rich release notes into your native apps as easily as possible!
-
-**This is NOT ready to be integrated into any projects at this stage.**
-
-# Appnouncements Android SDK
+# Appnouncements Android SDK [![Release](https://jitpack.io/v/com.appnouncements/appnouncements-android.svg)](https://jitpack.io/#com.appnouncements/appnouncements-android)
 ![](screenshots/logo.png)
 
-The Appnouncements Android SDK is the best way to get your release notes in front of your customer's eyes. Use it to inform customers about relevant changes and updates to your app.
+The [Appnouncements](https://www.appnouncements.com) Android SDK is the best way to get your release notes in front of your customer's eyes. Use it to inform customers about relevant changes and updates to your app.
 
 Phone | Error | Tablet
 :-------------------------:|:-------------------------:|:-------------------------:
@@ -147,6 +142,6 @@ Fix 2: Exclude the appcompat modules from Appnouncements
 ```
   dependencies {
     implementation 'com.android.support:appcompat-v7:22.1.0'
-    implementation ('com.github.Appnouncements:appnouncements-android:881ff1e18f') { exclude group: 'com.android.support' }
+    implementation ('com.appnouncements:appnouncements-android:0.1.0') { exclude group: 'com.android.support' }
   }
 ```
