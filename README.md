@@ -31,7 +31,7 @@ Add the dependency to your project's `build.gradle`
 
 ```
 	dependencies {
-	  implementation 'com.github.Appnouncements:appnouncements-android:881ff1e18f'
+	  implementation 'com.appnouncements:appnouncements-android:0.1.0'
 	}
 ```
 
