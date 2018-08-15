@@ -16,6 +16,8 @@ Phone | Error | Tablet
 
 ## Integration Guide
 ### Dependencies
+[![Release](https://jitpack.io/v/com.appnouncements/appnouncements-android.svg)](https://jitpack.io/#com.appnouncements/appnouncements-android)
+
 In your project's root `build.gradle`, add jitpack as a repository:
 
 ```
